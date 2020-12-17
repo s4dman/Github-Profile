@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+    <TextView
+        android:id="@+id/text_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/text_name"
+        app:layout_constraintStart_toStartOf="@+id/text_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_name" />
+
+    <TextView
+        android:id="@+id/text_user_repositories_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REPOSITORIES"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_user_following_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_user_repositories" />
+
+    <TextView
+        android:id="@+id/text_user_repositories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/text_user_repositories_label"
+        app:layout_constraintStart_toStartOf="@+id/text_user_repositories_label"
+        app:layout_constraintTop_toTopOf="@+id/text_user_following" />
+
+    <TextView
+        android:id="@+id/text_user_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/text_user_following_label"
+        app:layout_constraintStart_toStartOf="@+id/text_user_following_label"
+        app:layout_constraintTop_toTopOf="@+id/text_user_followers" />
+
+    <TextView
+        android:id="@+id/text_user_following_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FOLLOWING"
+        app:layout_constraintEnd_toStartOf="@+id/text_user_repositories_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_user_followers_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_user_following" />
+
+    <TextView
+        android:id="@+id/text_user_followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/text_user_followers_label"
+        app:layout_constraintStart_toStartOf="@+id/text_user_followers_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_location" />
+
+    <TextView
+        android:id="@+id/text_user_followers_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FOLLOWERS"
+        app:layout_constraintEnd_toStartOf="@+id/text_user_following_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_user_followers" />
+
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_joined" />
+
+    <TextView
+        android:id="@+id/text_joined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/ic_baseline_date_range_24"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_username" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
