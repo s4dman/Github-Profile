@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GithubProfile</string>
+    <string name="PREF_NAME">PREF_USER_DATA</string>
 </resources>

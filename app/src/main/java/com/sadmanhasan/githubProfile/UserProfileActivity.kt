@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.github.kittinunf.fuel.Fuel
 import com.sadmanhasan.githubProfile.models.UserModel
+import com.sadmanhasan.githubProfile.utils.Generics
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 
@@ -25,10 +26,8 @@ class UserProfileActivity : AppCompatActivity() {
         onClick()
     }
 
-    /*TODO: Generic SharedPref*/
     private fun savePref(userName: String) {
-        this.getSharedPreferences("PREF_USERNAME", Context.MODE_PRIVATE).edit()
-            .putString("userName", userName).apply()
+        Generics.setSharedPref(this, "userName", userName)
     }
 
     private fun onClick() {
