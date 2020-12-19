@@ -29,11 +29,11 @@ class RepoAdapter(private val context: Context, private val repos: List<RepoMode
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun setData(repo: RepoModel?) {
             itemView.text_repo_name.text = repo!!.name
-            itemView.text_repo_desc.text = repo!!.description
-            itemView.text_repo_lang.text = repo!!.language
-            itemView.text_repo_stars.text = repo!!.stargazers_count
-            itemView.text_repo_forks.text = repo!!.forks_count
-            itemView.text_repo_size.text = repo!!.size + " KB"
+            itemView.text_repo_desc.text = repo.description
+            itemView.text_repo_lang.text = repo.language
+            itemView.text_repo_stars.text = repo.stargazers_count
+            itemView.text_repo_forks.text = repo.forks_count
+            itemView.text_repo_size.text = repo.size + " KB"
         }
 
     }

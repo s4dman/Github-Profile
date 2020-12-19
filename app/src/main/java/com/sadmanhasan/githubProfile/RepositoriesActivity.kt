@@ -1,5 +1,6 @@
 package com.sadmanhasan.githubProfile
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,14 +15,16 @@ class RepositoriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repositories)
 
-        getRepo()
+        val userName =
+            getSharedPreferences("PREF_USERNAME", Context.MODE_PRIVATE).getString("userName", "")
+
+        getRepo(userName!!)
     }
 
-    private fun getRepo() {
-        Fuel.get("https://api.github.com/users/afollestad/repos")
+    private fun getRepo(userName: String) {
+        Fuel.get("https://api.github.com/users/$userName/repos")
             .responseObject(RepoModel.ListDeserializer()) { _, _, result ->
                 val (repoModel, error) = result
-                println(repoModel)
                 if (repoModel != null) {
                     repoRecyclerView(repoModel)
                 }
