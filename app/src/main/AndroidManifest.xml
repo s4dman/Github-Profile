@@ -12,8 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.githubProfile">
-        <activity android:name="com.sadmanhasan.githubProfile.RepositoriesActivity"></activity>
-        <activity android:name="com.sadmanhasan.githubProfile.MainActivity">
+        <activity android:name=".SearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RepositoriesActivity" />
+        <activity android:name=".UserProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
