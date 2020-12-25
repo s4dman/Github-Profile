@@ -13,6 +13,9 @@ data class UserModel(
     var followers: String,
     var following: String,
     var bio: String,
+    var blog: String,
+    var email: String,
+    var twitter_username: String,
     var location: String,
     var created_at: String,
     var updated_at: String
