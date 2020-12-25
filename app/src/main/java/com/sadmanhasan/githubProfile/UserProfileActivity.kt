@@ -4,15 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.github.kittinunf.fuel.Fuel
 import com.sadmanhasan.githubProfile.models.UserModel
 import com.sadmanhasan.githubProfile.utils.Generics
 import kotlinx.android.synthetic.main.activity_user_profile.*
 import java.text.SimpleDateFormat
-
-private const val TAG = "UserProfileActivity"
 
 class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +18,19 @@ class UserProfileActivity : AppCompatActivity() {
 
         val userName: String = intent.getStringExtra("userName")!!
 
+        val actionBar = supportActionBar
+        actionBar!!.title = userName
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         savePref(userName)
         getUserProfile(userName)
         onClick()
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun savePref(userName: String) {
@@ -52,7 +59,7 @@ class UserProfileActivity : AppCompatActivity() {
                     text_name.text = userModel.name
                     text_username.text = userModel.login
 
-                    if (userModel.bio.isNullOrEmpty())text_user_bio.visibility = View.GONE
+                    if (userModel.bio.isNullOrEmpty()) text_user_bio.visibility = View.GONE
                     else text_user_bio.text = userModel.bio
 
                     if (userModel.email.isNullOrEmpty()) text_user_email.visibility = View.GONE

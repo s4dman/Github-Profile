@@ -17,7 +17,16 @@ class RepositoriesActivity : AppCompatActivity() {
 
         val userName = Generics.getSharedPref(this, "userName")
 
+        val actionBar = supportActionBar
+        actionBar!!.title = "Repositories"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         getRepo(userName)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun getRepo(userName: String) {
