@@ -4,10 +4,8 @@ import android.content.Context
 import android.view.View
 import android.widget.TextView
 import com.sadmanhasan.githubProfile.R
-import com.sadmanhasan.githubProfile.models.UserModel
-import java.util.*
 
-class Generics {
+class GenericUtil {
 
 
     companion object {
@@ -22,6 +20,11 @@ class Generics {
         fun getSharedPref(context: Context, key: String): String {
             return context.getSharedPreferences(R.string.PREF_NAME.toString(), Context.MODE_PRIVATE)
                 .getString(key, "")!!
+        }
+
+        fun checkNullEmptyString(data: String?, textView: TextView) {
+            if (data.isNullOrEmpty()) textView.visibility = View.GONE
+            else textView.text = data
         }
     }
 }

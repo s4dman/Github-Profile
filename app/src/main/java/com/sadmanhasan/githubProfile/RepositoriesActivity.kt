@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.kittinunf.fuel.Fuel
 import com.sadmanhasan.githubProfile.adapters.RepoAdapter
 import com.sadmanhasan.githubProfile.models.RepoModel
-import com.sadmanhasan.githubProfile.utils.Generics
+import com.sadmanhasan.githubProfile.utils.GenericUtil
 import kotlinx.android.synthetic.main.activity_repositories.*
 import kotlinx.android.synthetic.main.repo_list.*
 
@@ -15,7 +15,7 @@ class RepositoriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repositories)
 
-        val userName = Generics.getSharedPref(this, "userName")
+        val userName = GenericUtil.getSharedPref(this, "userName")
 
         val actionBar = supportActionBar
         actionBar!!.title = "Repositories"

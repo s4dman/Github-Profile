@@ -2,12 +2,11 @@ package com.sadmanhasan.githubProfile
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.github.kittinunf.fuel.Fuel
 import com.sadmanhasan.githubProfile.models.UserModel
-import com.sadmanhasan.githubProfile.utils.Generics
+import com.sadmanhasan.githubProfile.utils.GenericUtil
 import kotlinx.android.synthetic.main.activity_user_profile.*
 import java.text.SimpleDateFormat
 
@@ -34,7 +33,7 @@ class UserProfileActivity : AppCompatActivity() {
     }
 
     private fun savePref(userName: String) {
-        Generics.setSharedPref(this, "userName", userName)
+        GenericUtil.setSharedPref(this, "userName", userName)
     }
 
     private fun onClick() {
@@ -59,21 +58,11 @@ class UserProfileActivity : AppCompatActivity() {
                     text_name.text = userModel.name
                     text_username.text = userModel.login
 
-                    if (userModel.bio.isNullOrEmpty()) text_user_bio.visibility = View.GONE
-                    else text_user_bio.text = userModel.bio
-
-                    if (userModel.email.isNullOrEmpty()) text_user_email.visibility = View.GONE
-                    else text_user_email.text = userModel.email
-
-                    if (userModel.blog.isNullOrEmpty()) text_user_blog.visibility = View.GONE
-                    else text_user_blog.text = userModel.blog
-
-                    if (userModel.twitter_username.isNullOrEmpty()) text_user_twitter.visibility =
-                        View.GONE
-                    else text_user_twitter.text = userModel.twitter_username
-
-                    if (userModel.location.isNullOrEmpty()) text_location.visibility = View.GONE
-                    else text_location.text = userModel.location
+                    GenericUtil.checkNullEmptyString(userModel.bio, text_user_bio)
+                    GenericUtil.checkNullEmptyString(userModel.email, text_user_email)
+                    GenericUtil.checkNullEmptyString(userModel.blog, text_user_blog)
+                    GenericUtil.checkNullEmptyString(userModel.twitter_username, text_user_twitter)
+                    GenericUtil.checkNullEmptyString(userModel.location, text_location)
 
                     val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                     val formatter = SimpleDateFormat("MMMM d, Y")
