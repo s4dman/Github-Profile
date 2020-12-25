@@ -1,12 +1,12 @@
 package com.sadmanhasan.githubProfile
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.kittinunf.fuel.Fuel
 import com.sadmanhasan.githubProfile.adapters.RepoAdapter
 import com.sadmanhasan.githubProfile.models.RepoModel
+import com.sadmanhasan.githubProfile.utils.Generics
 import kotlinx.android.synthetic.main.activity_repositories.*
 import kotlinx.android.synthetic.main.repo_list.*
 
@@ -15,10 +15,18 @@ class RepositoriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repositories)
 
-        val userName =
-            getSharedPreferences("PREF_USERNAME", Context.MODE_PRIVATE).getString("userName", "")
+        val userName = Generics.getSharedPref(this, "userName")
 
-        getRepo(userName!!)
+        val actionBar = supportActionBar
+        actionBar!!.title = "Repositories"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+        getRepo(userName)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun getRepo(userName: String) {
